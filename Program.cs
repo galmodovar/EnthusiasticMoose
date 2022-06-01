@@ -1,13 +1,72 @@
 ﻿using System;
 
-namespace EnthusiasticMoose
+Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
+Console.WriteLine("--------------------------------------------");
+Console.WriteLine();
+
+
+void MooseSays( string message)
 {
-    class Program
+    Console.WriteLine($@"
+                                       _.--^^^--,
+                                    .'          `\
+  .-^^^^^^-.                      .'              |
+ /          '.                   /            .-._/
+|             `.                |             |
+ \              \          .-._ |          _   \
+  `^^'-.         \_.-.     \   `          ( \__/
+        |             )     '=.       .,   \
+       /             (         \     /  \  /
+     /`               `\        |   /    `'
+     '..-`\        _.-. `\ _.__/   .=.
+          |  _    / \  '.-`    `-.'  /
+          \_/ |  |   './ _     _  \.'
+               '-'    | /       \ |
+                      |  .-. .-.  |
+                      \ / o| |o \ /
+                       |   / \   |    {message}
+                      / `^`   `^` \
+                     /             \
+                    | '._.'         \
+                    |  /             |
+                     \ |             |
+                      ||    _    _   /
+                      /|\  (_\  /_) /
+                      \ \'._  ` '_.'
+                       `^^` `^^^`
+    ");
+}
+
+MooseSays("H I, I'M  E N T H U S I A S T I C !");
+
+bool MooseAsks(string question)
+{
+    Console.Write($"{question} (Y/N): ");
+    string answer = Console.ReadLine().ToLower();
+
+    while (answer != "y" && answer != "n")
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
-            Console.WriteLine("--------------------------------------------");
-        }
+        Console.Write($"{question} (Y/N): ");
+        answer = Console.ReadLine().ToLower();
     }
+
+    if (answer == "y")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+// ask a question
+bool isTrue = MooseAsks("Is Canada real?");
+if (isTrue)
+{
+    MooseSays("Really? It seems unlikely...");
+}
+else 
+{
+    MooseSays("I knew it!");
 }
