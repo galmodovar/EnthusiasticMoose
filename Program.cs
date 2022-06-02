@@ -1,11 +1,25 @@
 ﻿using System;
 
-Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
-Console.WriteLine("--------------------------------------------");
-Console.WriteLine();
+Main();
 
+void Main() 
+{
+    Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
+    Console.WriteLine("--------------------------------------------");
+    Console.WriteLine();
 
-void MooseSays( string message)
+    // Let the moose speak
+    MooseSays("H I, I'M  E N T H U S I A S T I C !");
+
+    // Ask a question
+    MooseQuestion("Is Canada real?", "Really? Seems unlikely...", "I knew it");
+    MooseQuestion("Are you enthusiastic?", "Yay!", "You should try it!");
+    MooseQuestion("Do you love C# yet?", "yes", "no");
+
+}
+
+void MooseSays(string message)
+
 {
     Console.WriteLine($@"
                                        _.--^^^--,
@@ -37,7 +51,6 @@ void MooseSays( string message)
     ");
 }
 
-MooseSays("H I, I'M  E N T H U S I A S T I C !");
 
 bool MooseAsks(string question)
 {
@@ -60,13 +73,16 @@ bool MooseAsks(string question)
     }
 }
 
-// ask a question
-bool isTrue = MooseAsks("Is Canada real?");
-if (isTrue)
+void MooseQuestion(string question, string answerYes, string answerNo)
 {
-    MooseSays("Really? It seems unlikely...");
+    bool isTrue = MooseAsks($"{question}");
+    if (isTrue)
+    {
+        MooseSays(answerYes);
+    }
+    else 
+    {
+        MooseSays(answerNo);
+    }
 }
-else 
-{
-    MooseSays("I knew it!");
-}
+
